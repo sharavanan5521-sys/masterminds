@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Masterminds Training & Marketing — Website
 
-## Getting Started
+Showcase site built with Next.js (App Router), TypeScript, Tailwind CSS v4 and Motion. Every page is statically generated.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | Where |
+|---|---|
+| All page copy (contact details, audiences, philosophy, methodology…) | `src/content/site.ts` |
+| The six programmes (summary, key areas, audience, outcomes, image) | `src/content/programmes.ts` |
+| Training delivery formats + engagement process | `src/content/delivery.ts` |
+| Brand colours & fonts | `src/app/globals.css` (`@theme`) and `src/app/layout.tsx` |
+| Logo pieces (cut from the original artwork) | `public/brand/` |
+| Photos (Unsplash stock — replace with real training photos) | `public/images/` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pages
 
-## Learn More
+`/` · `/about` · `/programmes` · `/programmes/[slug]` (6 pages) · `/training-delivery` · `/contact`
 
-To learn more about Next.js, take a look at the following resources:
+## Mockup placeholders to replace
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Contact details in `src/content/site.ts` (email, phone, WhatsApp, address, social links)
+- `site.url` in `src/content/site.ts` once the domain is known
+- Map placeholder on `/contact`
+- Contact form is front-end only (`src/app/contact/contact-form.tsx`) — wire to a Server Action + email provider (e.g. Resend)
+- `audience` / `outcomes` per programme are draft copy for the client to confirm
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Import the repo in Vercel — no configuration needed. If the repo root is the parent folder, set **Root Directory** to `website`.
